@@ -26,7 +26,7 @@ public class DAO {
 		while(rs.next())
 		{
 			details.setRole(rs.getString(1));
-			details.setUserName(rs.getString(1));
+			details.setUserName(rs.getString(2));
 		}
 		
 		}

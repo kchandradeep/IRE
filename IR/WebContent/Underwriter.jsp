@@ -15,9 +15,12 @@
 	<div><center>
 		<h1>Welcome To ABZ Insurance</h1><br/>
 		<h3>UnderWriter Functions</h3><br/>
-		
+		<h3>Mr. <% 
+		session = request.getSession(false);
+		out.println((String)session.getAttribute("username"));    %> </h3></br>
 		<a href="Auto.jsp">Compute Automobile Insurance Premium</a><br/>
-		<a href ="Home.jsp">Compute Home Insurance Premium</a>
+		<a href ="Home.jsp">Compute Home Insurance Premium</a><br/>
+			<a href ="Logout">Logout</a>
 	</center></div>
 	<div style=" height:100px"></div>
 </body>

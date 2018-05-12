@@ -8,32 +8,28 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import p1.DAO;
 import p1.UserBean;
 
-/**
- * Servlet implementation class LoginServlet
- */
+
 public class LoginServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
+   
     public LoginServlet() {
         super();
-        // TODO Auto-generated constructor stub
+       
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
+	
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		PrintWriter out = response.getWriter();
 		String userID = request.getParameter("userID");
 		String password = request.getParameter("password");
-		
+		HttpSession session;
+		String username;
 		try {
 			 UserBean details = DAO.isUser(userID,password);
 			 
@@ -41,17 +37,25 @@ public class LoginServlet extends HttpServlet {
 			 {
 			 if(details.getRole().equalsIgnoreCase("admin"))
 			 {
+				 session = request.getSession(true);
+				username = details.getUserName();
+		
+				 session.setAttribute("username",username);
 				 response.sendRedirect("Admin.jsp");
+				 
 			 }
 			 else if(details.getRole().equalsIgnoreCase("user"))
-				 response.sendRedirect("Underwriter.jsp");
-			 else
+			 {
+				session = request.getSession(true);
+				session.setAttribute("username",details.getUserName());
+				response.sendRedirect("Underwriter.jsp");
+			 }
+				else
 				 out.println("invalid role");
 			 }
 			 else
 				 out.println("invalid user");
 		} catch (SQLException e) {
-			out.println("hele");
 			e.printStackTrace();
 		}
 	}

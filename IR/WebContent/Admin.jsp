@@ -11,17 +11,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
 <body>
+
 <div style=" height:100px"></div>
 	<div><center>
 		<h1>Welcome To ABZ Insurance</h1><br/>
-		<h3>Admin Functions</h3><br/>
-		
+		<h3> Administrator Functions</h3><br/>
+		<h4>Mr. <% session = request.getSession(false); 
+		String s = (String)session.getAttribute("username");
+		out.println(s);    %> </h4>
+		<br/>
 		<a href="Auto.jsp">View and Maintain Base Rates(Auto)</a><br/>
 		<a href ="Home.jsp">View and Maintain Rating Factors</a><br/>
 		<a href="Auto.jsp">View and Maintain Base Rates(Home)</a><br/>
 		<a href ="Home.jsp">View and Maintain Rating Factors</a><br/><br/>
 		
-		<a href ="Welcome.jsp">Logout</a>
+		<a href ="Logout">Logout</a>
 	</center></div>
 	<div style=" height:100px"></div>
 </body>

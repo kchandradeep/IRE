@@ -16,8 +16,6 @@ public class Ex {
 		}
 		
 		Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","vishal","vishal");
-		if(con!=null)
-		{
 		Statement stm = con.createStatement();
 		String query = "select * from Underwriter";
 		ResultSet rs = stm.executeQuery(query);
@@ -26,10 +24,7 @@ public class Ex {
 			System.out.println(rs.getString(1));
 			
 		}
-		}
-		else
-			System.out.println("djfkldfj");
-
+		con.close();
 	}
 
 }

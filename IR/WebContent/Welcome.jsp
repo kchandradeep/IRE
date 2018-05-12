@@ -18,7 +18,7 @@
 <center>
 <h1>Welcome To Insurance Rating System</h1><br/>
 
-<a href = "Login.html">Click here to Login</a>
+<a href = "Login.jsp">Click here to Login</a>
 </center>
 </div>
 <div style ="height : 100px" ></div>
