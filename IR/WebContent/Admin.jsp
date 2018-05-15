@@ -14,11 +14,21 @@
 
 <div style=" height:100px"></div>
 	<div><center>
+	<% 	session = request.getSession(false); 
+	if(session == null)
+	{
+		RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
+		rd.forward(request,response);
+	}
+
+%>
 		<h1>Welcome To ABZ Insurance</h1><br/>
 		<h3> Administrator Functions</h3><br/>
-		<h4>Mr. <% session = request.getSession(false); 
+		<h4>Mr. <% 
 		String s = (String)session.getAttribute("username");
-		out.println(s);    %> </h4>
+		out.println(s);   
+		
+		%> </h4>
 		<br/>
 		<a href="Auto.jsp">View and Maintain Base Rates(Auto)</a><br/>
 		<a href ="Home.jsp">View and Maintain Rating Factors</a><br/>

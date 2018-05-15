@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page  import = " java.util.* " language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -15,13 +15,19 @@
 	<div style = "height:100px"></div>
 	<div class="container">
 	<h1>Select Vehicle Model:</h1>
-		<select>
-  <option value="volvo">Volvo</option>
-  <option value="saab">Saab</option>
-  <option value="opel">Opel</option>
-  <option value="audi">Audi</option>
-		</select><br/><br/>
-		<button type="submit" class="btn btn-default">Calculate Auto Premium</button>
+		
+		<%  session= request.getSession(false);
+		ArrayList<String> models = (ArrayList<String>)session.getAttribute("models");
+	
+			out.println("<select name='cars'>");
+		for(String a:models)
+		{
+			out.println("<option>"+a+"</option>");
+		}
+			out.println("</select>");
+		%>
+		<br/><br/>
+		<a href="CalcAuto1.jsp" class="btn btn-outline-dark">Calculate Auto Premium</a>
 		<button type="Underwriter.jsp" class="btn btn-default">Back</button>
 	</div>
 	<div style = "height:100px"></div>

@@ -18,8 +18,8 @@
 		<h3>Mr. <% 
 		session = request.getSession(false);
 		out.println((String)session.getAttribute("username"));    %> </h3></br>
-		<a href="Auto.jsp">Compute Automobile Insurance Premium</a><br/>
-		<a href ="Home.jsp">Compute Home Insurance Premium</a><br/>
+		<a href="Auto">Compute Automobile Insurance Premium</a><br/>
+		<a href ="Home">Compute Home Insurance Premium</a><br/>
 			<a href ="Logout">Logout</a>
 	</center></div>
 	<div style=" height:100px"></div>

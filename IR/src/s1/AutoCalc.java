@@ -2,6 +2,8 @@ package s1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,16 +12,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import p1.DAO;
+
 /**
- * Servlet implementation class LogoutServlet
+ * Servlet implementation class AutoCalc
  */
-public class LogoutServlet extends HttpServlet {
+public class AutoCalc extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LogoutServlet() {
+    public AutoCalc() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -28,14 +32,18 @@ public class LogoutServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter p = response.getWriter();
-		HttpSession session = request.getSession(false);
-		if(session != null)
-		{
-			session.invalidate();
-			RequestDispatcher rd = request.getRequestDispatcher("Welcome.jsp");
-			rd.include(request, response);
-		}
+		
+		ArrayList<String> models;
+		
+			models = new DAO().selectModel();
+			PrintWriter p = response.getWriter();
+			p.println(models.size());
+			
+			HttpSession session = request.getSession(false);
+			session.setAttribute("models", models);
+			response.sendRedirect("CalcAuto.jsp");
+		
+		
 		
 	}
 

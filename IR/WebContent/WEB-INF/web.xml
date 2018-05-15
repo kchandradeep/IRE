@@ -29,4 +29,24 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/Logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutoCalc</display-name>
+    <servlet-name>AutoCalc</servlet-name>
+    <servlet-class>s1.AutoCalc</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutoCalc</servlet-name>
+    <url-pattern>/Auto</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Visual</display-name>
+    <servlet-name>Visual</servlet-name>
+    <servlet-class>s1.Visual</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Visual</servlet-name>
+    <url-pattern>/Visual</url-pattern>
+  </servlet-mapping>
 </web-app>
