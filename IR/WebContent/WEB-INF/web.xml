@@ -49,4 +49,14 @@
     <servlet-name>Visual</servlet-name>
     <url-pattern>/Visual</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AutoCalc1</display-name>
+    <servlet-name>AutoCalc1</servlet-name>
+    <servlet-class>s1.AutoCalc1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AutoCalc1</servlet-name>
+    <url-pattern>/Auto1</url-pattern>
+  </servlet-mapping>
 </web-app>

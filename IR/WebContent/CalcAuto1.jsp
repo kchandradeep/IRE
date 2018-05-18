@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page import = "java.util.*"  language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,12 +12,21 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
 </head>
 <body>
+<% 
+		session = request.getSession(false);
+		Object[] arr = (Object[])session.getAttribute("arr");
+		
+		
+		
+		%>
 <div style = "height:100px"></div>
 	<div class = "container" style="border-style: solid ; border-color:grey; border-width :5px"><center>
 		<h1 class="text-primary"><u>Calculate Auto Insurance Premium</u></h1><br/></center>
-		<h4>Vehicle Model : ____________ </h4><br/>
-		<h4>Base Premium : ____________</h4><br/>
-	<center>
+		<h4>Vehicle Model :<u><% out.println(arr[0]); %></u></h4><br/>
+		<h4>Base Premium :<u><% out.println(arr[1]); %></u></h4><br/>
+		
+	
+	<form name = "" method = "post" action = "">
 	<table class="table table-bordered">
     <thead>
       <tr>
@@ -28,41 +37,55 @@
     <tbody>
       <tr>
         <td>What is the vehicle type?</td>
-        <td><select><option></option></select></td>     
+        <td><select name = "type" style="width:100px"><option>Petrol</option>
+        								<option>Diesel</option>
+        </select></td>     
       </tr>
       <tr>
         <td>Is there any proof of earlier insurance?</td>
-        <td><select><option></option></select></td>     
+        <td><select name="proof" style="width:100px"><option>Yes</option>
+        								<option>No</option>
+        </select></td>     
       </tr>
       <tr>
         <td>What's the driver's class?</td>
-        <td><select><option></option></select></td>
+        <td><select name="class" style="width:100px"><option>Transport</option>
+        								<option>Non-Tranksport</option>
+        </select></td>
       </tr>
       <tr>
         <td>Does the vehicle have airbags and advanced safety features?</td>
-        <td><select><option></option></select></td>     
+        <td><select name = "safety" style="width:100px"><option>Yes</option>
+        								<option>No</option>
+        </select>
+        								
+        </td>     
       </tr>
       <tr>
         <td>Does the vehicle have an anti-theft alarm?</td>
-        <td><select><option></option></select></td>     
+        <td><select name="anit-theft" style="width:100px"><option>Yes</option>
+        								<option>No</option>
+        </select></td>     
       </tr>
       <tr>
-        <td>What is the driver's traffic violation history?</td>
-        <td><select><option></option></select></td>     
+        <td>Does the driver have traffic violation history?</td>
+        <td><select name="violation"style="width:100px"><option>Yes</option>
+        								<option>No</option></select>
+        </td>     
       </tr>
       <tr>
         <td>What is the policy term?</td>
-        <td><select><option></option></select></td>     
+        <td><select name="policy" style="width:100px"><option></option></select></td>     
       </tr>
     </tbody>
   </table>	
-	</center><br/>
+	<br/>
 	
 	
-	<center><button style='margin-right:180px' type="button" class="btn btn-outline-dark">Calculate</button>
-	<button style='margin-right:180px'type="button" class="btn btn-outline-dark">Clear</button>
-	<a href="Welcome.jsp" class="btn btn-outline-dark">Cancel</a></center><br/><br/>
-	
+	<center><button style='margin-right:180px' type = "submit"  class = "btn btn-outline-dark" name = "" value = "submit">Submit</button>
+	<button  style='margin-right:180px'type="reset" class="btn btn-outline-dark">Clear</button>
+	<a href="Welcome.jsp" class="btn btn-outline-dark">Cancel</a><br/><br/></center>
+	</form>
 	</div>
 	
 <div style = "height :100px"></div>

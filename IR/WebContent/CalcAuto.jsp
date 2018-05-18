@@ -15,20 +15,25 @@
 	<div style = "height:100px"></div>
 	<div class="container">
 	<h1>Select Vehicle Model:</h1>
-		
+		<form name = "Auto" method = "get" action = "Auto1">
 		<%  session= request.getSession(false);
 		ArrayList<String> models = (ArrayList<String>)session.getAttribute("models");
-	
+		
 			out.println("<select name='cars'>");
 		for(String a:models)
 		{
-			out.println("<option>"+a+"</option>");
+			out.println("<option >"+ a +"</option>");
 		}
+		
 			out.println("</select>");
-		%>
-		<br/><br/>
-		<a href="CalcAuto1.jsp" class="btn btn-outline-dark">Calculate Auto Premium</a>
-		<button type="Underwriter.jsp" class="btn btn-default">Back</button>
+			
+		%><br/><br/>
+		<button type = "submit"  class = "btn btn-outline-dark" name = "cars" value = "submit" />Submit</button>
+		<a href="Underwriter.jsp" class="btn btn-info" role="button">Back</a>
+		</form>
+		
+	<%--<a href="Auto1" class="btn btn-outline-dark">Calculate Auto Premium</a> --%>	
+		
 	</div>
 	<div style = "height:100px"></div>
 </center>

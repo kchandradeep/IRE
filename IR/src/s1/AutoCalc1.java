@@ -2,10 +2,8 @@ package s1;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
-import javax.servlet.RequestDispatcher;
+
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,15 +13,15 @@ import javax.servlet.http.HttpSession;
 import p1.DAO;
 
 /**
- * Servlet implementation class AutoCalc
+ * Servlet implementation class AutoCalc1
  */
-public class AutoCalc extends HttpServlet {
+public class AutoCalc1 extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public AutoCalc() {
+    public AutoCalc1() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,16 +30,21 @@ public class AutoCalc extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String car = request.getParameter("cars");
+		//PrintWriter out = response.getWriter();
+		//out.println(car);
+		int base = DAO.getModel(car);
 		
-		ArrayList<String> models;
+		Object[] arr = new Object[2];
 		
-			models = new DAO().selectModel();
-			
-			
-			HttpSession session = request.getSession(false);
-			session.setAttribute("models", models);
-			response.sendRedirect("CalcAuto.jsp");
+			arr[0] = car;
+			arr[1] = base;
 		
+		
+		HttpSession session = request.getSession(false);
+		session.setAttribute("arr",arr);
+		
+		response.sendRedirect("CalcAuto1.jsp");
 		
 		
 	}
