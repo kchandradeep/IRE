@@ -26,7 +26,7 @@
 		<h4>Base Premium :<u><% out.println(arr[1]); %></u></h4><br/>
 		
 	
-	<form name = "" method = "post" action = "">
+	<form name = "premium" method = "post" action = "Calc">
 	<table class="table table-bordered">
     <thead>
       <tr>
@@ -37,52 +37,54 @@
     <tbody>
       <tr>
         <td>What is the vehicle type?</td>
-        <td><select name = "type" style="width:100px"><option>Petrol</option>
+        <td><select name = "vehicleType" style="width:100px"><option>Petrol</option>
         								<option>Diesel</option>
         </select></td>     
       </tr>
       <tr>
         <td>Is there any proof of earlier insurance?</td>
-        <td><select name="proof" style="width:100px"><option>Yes</option>
-        								<option>No</option>
+        <td><select name="proof" style="width:100px"><option>yes</option>
+        								<option>no</option>
         </select></td>     
       </tr>
       <tr>
         <td>What's the driver's class?</td>
-        <td><select name="class" style="width:100px"><option>Transport</option>
-        								<option>Non-Tranksport</option>
+        <td><select name="dClass" style="width:100px"><option>transport</option>
+        								<option>NonTransport</option>
         </select></td>
       </tr>
       <tr>
         <td>Does the vehicle have airbags and advanced safety features?</td>
-        <td><select name = "safety" style="width:100px"><option>Yes</option>
-        								<option>No</option>
+        <td><select name = "safety" style="width:100px"><option>yes</option>
+        								<option>no</option>
         </select>
         								
         </td>     
       </tr>
       <tr>
         <td>Does the vehicle have an anti-theft alarm?</td>
-        <td><select name="anit-theft" style="width:100px"><option>Yes</option>
-        								<option>No</option>
+        <td><select name="antiTheft" style="width:100px"><option>yes</option>
+        								<option>no</option>
         </select></td>     
       </tr>
       <tr>
         <td>Does the driver have traffic violation history?</td>
-        <td><select name="violation"style="width:100px"><option>Yes</option>
-        								<option>No</option></select>
+        <td><select name="violation"style="width:100px"><option>yes</option>
+        								<option>no</option></select>
         </td>     
       </tr>
       <tr>
         <td>What is the policy term?</td>
-        <td><select name="policy" style="width:100px"><option></option></select></td>     
+        <td><select name="policy" style="width:100px"><option>LongTerm</option>
+        <option>ShortTerm</option>
+        </select></td>     
       </tr>
     </tbody>
   </table>	
 	<br/>
 	
 	
-	<center><button style='margin-right:180px' type = "submit"  class = "btn btn-outline-dark" name = "" value = "submit">Submit</button>
+	<center><button style='margin-right:180px' type = "submit"  class = "btn btn-outline-dark" name = "premium" value = "submit">Submit</button>
 	<button  style='margin-right:180px'type="reset" class="btn btn-outline-dark">Clear</button>
 	<a href="Welcome.jsp" class="btn btn-outline-dark">Cancel</a><br/><br/></center>
 	</form>

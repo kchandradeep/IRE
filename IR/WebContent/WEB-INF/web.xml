@@ -59,4 +59,14 @@
     <servlet-name>AutoCalc1</servlet-name>
     <url-pattern>/Auto1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>CalcPremium</display-name>
+    <servlet-name>CalcPremium</servlet-name>
+    <servlet-class>s1.CalcPremium</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CalcPremium</servlet-name>
+    <url-pattern>/Calc</url-pattern>
+  </servlet-mapping>
 </web-app>

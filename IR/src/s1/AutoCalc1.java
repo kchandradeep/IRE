@@ -43,6 +43,7 @@ public class AutoCalc1 extends HttpServlet {
 		
 		HttpSession session = request.getSession(false);
 		session.setAttribute("arr",arr);
+		session.setAttribute("base", base);
 		
 		response.sendRedirect("CalcAuto1.jsp");
 		
